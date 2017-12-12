@@ -28,13 +28,10 @@
 </scroll-view>
 <view class="wa-row" style="height:10%;">
     <view class="wa-col-10 text-center icon ion-ios-mic" style="line-height:30px" bindtap="getvoice">麦</view>
-    <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="wa-col-66 padding_half">
-        <input name="msg" placeholder="请输入消息" />
+        <input name="msg" placeholder="请输入消息" value='{{userInput}}' bindinput="bindKeyInput"/>
     </view>
-    <view class="wa-col-10 text-center icon ion-happy-outline" style="line-height:30px">
-    <button formType="submit">Submit</button></view>
-    </form>
+    <view class="wa-col-8 text-center icon ion-happy-outline" style="line-height:30px" bindtap="clearInput" confirm-type="send">发表</view>
     <view class="wa-col-10 text-center icon ion-ios-plus-outline text-center" style="line-height:30px" bindtap="elseBtn">+</view>
 </view>
 <view id="elsePanel" animation="{{animation}}">
@@ -43,11 +40,6 @@
         <view class="wa-col-33" bindtap="getlocat"><view class="text-center" style="line-height:50px">位置</view></view>
         <view class="wa-col-33" bindtap="stopvoice"><view class="text-center" style="line-height:50px">test</view></view>
         
-    </view>
-    <view class="wa-row">
-        <view class="wa-col-33"><view class="text-center" style="line-height:50px">test</view></view>
-        <view class="wa-col-33"><view class="text-center" style="line-height:50px">test</view></view>
-        <view class="wa-col-33"><view class="text-center" style="line-height:50px">test</view></view>
     </view>
 </view>
     <!--<map

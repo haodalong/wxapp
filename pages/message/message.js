@@ -9,7 +9,7 @@ Page({
     animation:{},
     animation_2:{},
     tap:"tapOff",
-    
+    userInput: ''
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -78,18 +78,27 @@ Page({
       }
     })
   },
-  formSubmit: function (e){
-    var msg = e.detail.value.msg;
-    var _self = this;
-    var t = _self.data.message;
-    t.push({
-      img: _self.data.userInfo.avatarUrl,
-      me: true,
-      text: msg
-    })
-    _self.setData({
-      message: t
-    })
+  bindKeyInput: function (e) {
+    this.setData({
+      userInput: e.detail.value
+    });
+  },
+  clearInput: function (){
+    var msg = this.data.userInput;
+    if (msg){
+      var _self = this;
+      var t = _self.data.message;
+      t.push({
+        img: _self.data.userInfo.avatarUrl,
+        me: true,
+        text: msg
+      })
+      _self.setData({
+        message: t,
+        userInput: ''
+      })
+    }
+    
   },
   // getaddress:function(){
   //   wx.getLocation({
